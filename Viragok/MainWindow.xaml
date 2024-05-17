@@ -5,11 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Viragok"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Virágbolt" Height="450" Width="500">
     <Grid>
-        <ListBox x:Name="Viragok" Margin="10,119,527,10" />
-        <ListBox x:Name="Masolatok" Margin="602,180,10,10"/>
-        <Button Content="Másol" HorizontalAlignment="Left" Padding="15,5" VerticalAlignment="Top" Margin="10,86,0,0" Click="Copy"/>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#FF949494" Offset="0.0"/>
+                <GradientStop Color="#FFA29A48" Offset="0.35"/>
+                <GradientStop Color="#FFAD6A6A" Offset="0.55"/>
+                <GradientStop Color="#FF5ACBCC" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ListBox x:Name="Viragok" Margin="10,119,227,10" SelectionChanged="Viragok_SelectionChanged" SelectedIndex="0" Background="{x:Null}"/>
+        <ListBox x:Name="Masolatok" Margin="320,180,10,10" Background="{x:Null}"/>
+        <Button Content="Másol" HorizontalAlignment="Left" Padding="15,5" VerticalAlignment="Top" Margin="10,86,0,0" Click="Copy" Background="{x:Null}" />
+        <Button Content="Törlés" HorizontalAlignment="Left" Padding="15,5" VerticalAlignment="Top" Margin="79,86,0,0" Click="Delete" Background="{x:Null}"/>
+        <TextBox x:Name="Adatok" HorizontalAlignment="Left" Margin="320,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="50" Background="{x:Null}"/>
 
     </Grid>
 </Window>

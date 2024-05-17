@@ -25,17 +25,17 @@ namespace Viragok
                 path: @"..\..\..\src\flowers.txt",
                 encoding: System.Text.Encoding.UTF8);
             while (!sr.EndOfStream) viragok.Add(new(sr.ReadLine()));
-            var v = viragok.OrderBy(v => v._nev).ToList();
-            Feltolt(v);
+            Feltolt(viragok);
         }
 
         private void Feltolt(List<Virag> viragok)
         {
+            var v = viragok.OrderBy(v => v._nev).ToList();
             Viragok.Items.Clear();
-            foreach (var v in viragok)
+            foreach (var vi in viragok)
             {
                 ListBoxItem virag = new();
-                virag.Content = v._nev;
+                virag.Content = vi._nev;
                 Viragok.Items.Add(virag);
             }
         }
@@ -47,6 +47,37 @@ namespace Viragok
                 ListBoxItem copiedItem = (ListBoxItem)Viragok.SelectedItem;
                 string x = copiedItem.Content.ToString();
                 Masolatok.Items.Add(x);
+            }
+        }
+
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            ListBoxItem item = (ListBoxItem)Viragok.SelectedItem;
+            int i = -1;
+            foreach (var v in viragok)
+            {
+                if (v._nev == item.Content.ToString())
+                {
+                    i = viragok.IndexOf(v);
+                }
+            }
+            if (i > -1) viragok.RemoveAt(i);
+            Feltolt(viragok);
+            Adatok.Text = string.Empty;
+        }
+
+        private void Viragok_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Viragok.SelectedItem != null)
+            {
+                ListBoxItem varos = (ListBoxItem)Viragok.SelectedItem;
+                foreach (var v in viragok)
+                {
+                    if (v._nev == varos.Content.ToString())
+                    {
+                        Adatok.Text = $"Adatok:\nÁr: {v._ar.ToString()} Ft\nSzín: {v._szin.ToString()}";
+                    }
+                }
             }
         }
     }
