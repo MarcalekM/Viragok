@@ -19,7 +19,9 @@
         <ListBox x:Name="Masolatok" Margin="320,180,10,10" Background="{x:Null}"/>
         <Button Content="Másol" HorizontalAlignment="Left" Padding="15,5" VerticalAlignment="Top" Margin="10,86,0,0" Click="Copy" Background="{x:Null}" />
         <Button Content="Törlés" HorizontalAlignment="Left" Padding="15,5" VerticalAlignment="Top" Margin="79,86,0,0" Click="Delete" Background="{x:Null}"/>
-        <TextBox x:Name="Adatok" HorizontalAlignment="Left" Margin="320,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="50" Background="{x:Null}"/>
+        <TextBox x:Name="Adatok" HorizontalAlignment="Left" Margin="320,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="50" Background="{x:Null}"/>
+        <Image x:Name="Kep" HorizontalAlignment="Left" Height="100" Margin="320,75,0,0" VerticalAlignment="Top" Width="100" Source="IMAGES/rózsa.jfif"/>
+
 
     </Grid>
 </Window>

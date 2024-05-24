@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Viragok
 {
@@ -70,10 +71,10 @@ namespace Viragok
         {
             if (Viragok.SelectedItem != null)
             {
-                ListBoxItem varos = (ListBoxItem)Viragok.SelectedItem;
+                ListBoxItem virag = (ListBoxItem)Viragok.SelectedItem;
                 foreach (var v in viragok)
                 {
-                    if (v._nev == varos.Content.ToString())
+                    if (v._nev == virag.Content.ToString())
                     {
                         Adatok.Text = $"Adatok:\nÁr: {v._ar.ToString()} Ft\nSzín: {v._szin.ToString()}";
                     }
